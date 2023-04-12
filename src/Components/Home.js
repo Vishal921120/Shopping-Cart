@@ -5,9 +5,10 @@ import Filter from './Filter';
 import './style.css';
 
 const Home = () => {
-  const {state : {products},} = CartState();
+  const {state : {products,cart}} = CartState();
 
   console.log(products);
+  // console.log(cart);
 
 
   return (
