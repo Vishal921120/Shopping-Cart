@@ -1,0 +1,15 @@
+1. npx create-react-app 
+2. for designing run this command, npm install react-bootstrap bootstrap@4.6.0shopping and then paste this line 
+in your index.js file - import 'bootstrap/dist/css/bootstrap.min.css'
+3. for icons - npm install react-icons and import cart icon FaShoppingCart
+4. for creating page and for navigating purpose - npm i react-router-dom
+  Important change in react router :-
+    react router v6 doesn't support exact anymore.
+    // old - v5 <Route exact path="/" component={Home} />
+    // new - v6 <Route path="/" element={<Home />} />
+    As stated in their documentation:
+    You don't need to use an exact prop on <Route path="/"> anymore. 
+    This is because all paths match exactly by default. 
+    If you want to match more of the URL because you have child routes use a trailing * as in <Route path="users/*">.
+5. For getting fake data we took help from faker which generates fake data : - npm i faker but this command 
+or this faker repo isn't working so we will be using old version like npm i @withshepherd/faker
