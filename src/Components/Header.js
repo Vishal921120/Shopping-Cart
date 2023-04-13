@@ -15,29 +15,35 @@ import { CartState } from "../context/Context";
 import { AiFillDelete } from "react-icons/ai";
 
 export const Header = () => {
-  const {state : {cart} , dispatch
+  const {state : {cart} , dispatch , productDispatch
   } = CartState();
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
       <Container>
         <Navbar.Brand>
-          <Link to="/">Shopping Cart</Link>
+          <Link to="/"><b>Shopping Cart</b></Link>
         </Navbar.Brand>
         <Navbar.Text className="search">
           <FormControl
-            style={{ width: 500 }}
+            style={{ width: 400 }}
             placeholder="Search a product"
             className="m-auto"
+            onChange={(e) => {
+              productDispatch({
+                type : "FILTER-BY-SEARCH",
+                payload : e.target.value,
+              })
+            }}
           />
         </Navbar.Text>
-        <Nav>
-          <Dropdown align="end">
+        <Nav style={{paddingRight : 100}}>
+          <Dropdown>
             <Dropdown.Toggle variant="success" >
               <FaShoppingCart color="white" fontSize="25" />
               <Badge bg="success">{cart.length}</Badge>
             </Dropdown.Toggle>
 
-            <Dropdown.Menu style={{ minWidth: 370 }}>
+            <Dropdown.Menu style={{ minWidth: 370 }} >
               {cart.length>0 ? (
                 <>
                    {cart.map((prod) => (
